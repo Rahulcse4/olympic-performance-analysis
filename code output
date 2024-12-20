@@ -1,0 +1,22 @@
+   Country  Year      Medal
+0  USA      2000    Gold
+1  USA      2000    Silver
+2  USA      2000    Bronze
+3  USA      2004    Gold
+4  China    2004    Gold
+
+
+Grouped Medal Count by Country 
+Country
+USA         252
+Soviet Union 196
+Germany     130
+Great Britain 130
+France      115
+Italy       101
+China        96
+Australia    86
+Hungary      85
+Russia       83
+Name: Medal, dtype: int64
+
