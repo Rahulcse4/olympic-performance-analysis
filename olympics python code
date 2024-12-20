@@ -1,0 +1,32 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load dataset
+file_path = "olympics_data.csv"  # Replace with your dataset file path
+data = pd.read_csv(file_path)
+
+# Quick overview of the data
+print(data.head())
+
+# Group by countries and count medals
+medal_count = data.groupby('Country')['Medal'].count().sort_values(ascending=False)
+print(medal_count)
+
+# Plot top 10 countries by medal count
+top_10 = medal_count.head(10)
+top_10.plot(kind='bar', color='gold', figsize=(10, 6))
+plt.title('Top 10 Countries by Medal Count')
+plt.xlabel('Country')
+plt.ylabel('Total Medals')
+plt.show()
+
+# Analyze performance over time
+data['Year'] = pd.to_datetime(data['Year'], format='%Y')
+medals_by_year = data.groupby('Year')['Medal'].count()
+
+# Plot medals won over time
+medals_by_year.plot(kind='line', color='blue', figsize=(10, 6))
+plt.title('Medals Won Over Time')
+plt.xlabel('Year')
+plt.ylabel('Total Medals')
+plt.show()
